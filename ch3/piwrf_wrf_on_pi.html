@@ -197,8 +197,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pi-wrf-forecast">
-   Pi-WRF Forecast
+  <a class="reference internal nav-link" href="#forecast">
+   Forecast
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -241,8 +241,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pi-wrf-setup">
-   Pi-WRF Setup
+  <a class="reference internal nav-link" href="#setup">
+   Setup
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -301,8 +301,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pi-wrf-how-the-model-works">
-   Pi-WRF How the Model Works
+  <a class="reference internal nav-link" href="#how-the-model-works">
+   How the Model Works
   </a>
  </li>
 </ul>
@@ -319,8 +319,8 @@
   <div class="section" id="run-wrf-on-raspberry-pi">
 <h1>Run WRF on Raspberry Pi<a class="headerlink" href="#run-wrf-on-raspberry-pi" title="Permalink to this headline">¶</a></h1>
 <p>Also known as WRF on Pi, the goal of this project is to run a real weather model on your <a class="reference external" href="https://www.raspberrypi.org">Raspberry Pi</a> and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.</p>
-<div class="section" id="pi-wrf-forecast">
-<h2>Pi-WRF Forecast<a class="headerlink" href="#pi-wrf-forecast" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forecast">
+<h2>Forecast<a class="headerlink" href="#forecast" title="Permalink to this headline">¶</a></h2>
 <p><img alt="title" src="../_images/piwrf_results.png" /></p>
 <div class="section" id="overview">
 <h3>Overview:<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
@@ -349,8 +349,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="pi-wrf-setup">
-<h2>Pi-WRF Setup<a class="headerlink" href="#pi-wrf-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>These instructions assume your Raspberry Pi is already up and running.</p>
 <div class="section" id="section-1-download-and-install-docker-on-your-raspberry-pi">
 <h3>Section 1. Download and install Docker on your Raspberry Pi<a class="headerlink" href="#section-1-download-and-install-docker-on-your-raspberry-pi" title="Permalink to this headline">¶</a></h3>
@@ -391,8 +391,8 @@
 <p><a class="reference external" href="https://w2.weather.gov/climate/index.php?wfo=bou">National Weather Service</a></p>
 </div>
 </div>
-<div class="section" id="pi-wrf-how-the-model-works">
-<h2>Pi-WRF How the Model Works<a class="headerlink" href="#pi-wrf-how-the-model-works" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-the-model-works">
+<h2>How the Model Works<a class="headerlink" href="#how-the-model-works" title="Permalink to this headline">¶</a></h2>
 <p>Creating a real world forecast is a complicated process. It involves combining observations (from satellites, weather balloons, radars, aircraft, buoys, etc.) and short term forecasts, a process called <a class="reference internal" href="#term-data-assimilation"><span class="xref std std-term">data assimilation</span></a>. The end goal of data assimilation is to create the initial conditions for the weather model, which is essentially a snapshot of the atmosphere. The initial conditions tell the weather model what the values are for pressure, temperature, wind, and water vapor throughout the entire atmosphere. Once the initial state of the atmosphere is known, the weather model runs, and physics and mathematics take over as the weather model begins to simulate weather in the future.</p>
 <dl class="glossary simple">
 <dt id="term-data-assimilation">data assimilation<a class="headerlink" href="#term-data-assimilation" title="Permalink to this term">¶</a></dt><dd><p>The process of combining observations and model forecasts</p>
