@@ -2,7 +2,7 @@
 
 Also known as WRF on Pi, the goal of this project is to run a real weather model on your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.
  
-## Pi-WRF Forecast 
+## Forecast 
 
 ![title](piwrf_results.png)
 
@@ -27,7 +27,7 @@ This if for anyone who is interested in running their own weather model or learn
 
 #### 3) Mouse/Keyboard/Monitor for the Raspberry Pi
 
-## Pi-WRF Setup
+## Setup
 
 These instructions assume your Raspberry Pi is already up and running.
 
@@ -67,7 +67,7 @@ Websites like these are great for determining the observations of your domain:
 
 [National Weather Service](https://w2.weather.gov/climate/index.php?wfo=bou "National Weather Service Forecast Office: Denver-Boulder, CO")
 
-## Pi-WRF How the Model Works 
+## How the Model Works 
 
 Creating a real world forecast is a complicated process. It involves combining observations (from satellites, weather balloons, radars, aircraft, buoys, etc.) and short term forecasts, a process called {term}`data assimilation`. The end goal of data assimilation is to create the initial conditions for the weather model, which is essentially a snapshot of the atmosphere. The initial conditions tell the weather model what the values are for pressure, temperature, wind, and water vapor throughout the entire atmosphere. Once the initial state of the atmosphere is known, the weather model runs, and physics and mathematics take over as the weather model begins to simulate weather in the future. 
 
