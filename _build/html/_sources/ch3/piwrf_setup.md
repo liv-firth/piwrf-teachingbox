@@ -1,6 +1,6 @@
-# piwrf-teachingbox piwrf setup/instructions 
-# contributors: Agbeli Ameko, Keith Maull, Reid Olson 
+# Pi-WRF Setup
 
+These instructions assume your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") is already up and running.
 
 ## What is Pi-WRF?
 
