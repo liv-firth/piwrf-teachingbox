@@ -57,7 +57,7 @@ Once you have launched the appliction, it is time to run it. The app allows you 
 
 #### 2.2 Select a start and end date, and confirm your selection.
 
-#### 2.3 Click and drag the domain you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
+#### 2.3 Click and drag the {term}`domain` you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
 
 #### 2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.
 
@@ -69,5 +69,20 @@ Websites like these are great for determining the observations of your domain:
 
 ## Pi-WRF How the Model Works 
 
-Creating a real world forecast is a complicated process. It involves combining observations (from satellites, weather balloons, radars, aircraft, buoys, etc.) and short term forecasts, a process called data assimilation. The end goal of data assimilation is to create the initial conditions for the weather model, which is essentially a snapshot of the atmosphere. The initial conditions tell the weather model what the values are for pressure, temperature, wind, and water vapor throughout the entire atmosphere. Once the initial state of the atmosphere is known, the weather model runs, and physics and mathematics take over as the weather model begins to simulate weather in the future. 
+Creating a real world forecast is a complicated process. It involves combining observations (from satellites, weather balloons, radars, aircraft, buoys, etc.) and short term forecasts, a process called {term}`data assimilation`. The end goal of data assimilation is to create the initial conditions for the weather model, which is essentially a snapshot of the atmosphere. The initial conditions tell the weather model what the values are for pressure, temperature, wind, and water vapor throughout the entire atmosphere. Once the initial state of the atmosphere is known, the weather model runs, and physics and mathematics take over as the weather model begins to simulate weather in the future. 
+
+```{glossary}
+data assimilation
+  The process of combining observations and model forecasts 
+
+domain
+  The area you want to simulate
+
+grid cells
+  The model divides the domain into a series of squares that resembles a checkers/chess board. These squares are known as grid cells
+
+resolution
+  The size of the grid cells. Having smaller grid cells allows the model to simulate finer and more detailed features. Therefore small grid cells indicate a higher resolution 
+```
+
 
