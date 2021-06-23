@@ -6,3 +6,5 @@ root: intro
 chapters:
 - file: ch1/markdown
 - file: ch2/notebooks
+- url: https://github.com/reidolson/piwrf-teachingbox/blob/main/_toc.yml
+
