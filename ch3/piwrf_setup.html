@@ -197,15 +197,15 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-pi-wrf">
-   What is Pi-WRF?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-are-roles-and-directives">
-   What are roles and directives?
+  <a class="reference internal nav-link" href="#section-1-download-and-install-docker-on-your-raspberry-pi">
+   Section 1. Download and install Docker on your Raspberry Pi
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-docker-by-opening-a-terminal-and-typing">
+     1.1 Install Docker by opening a terminal and typing
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-a-directive">
      Using a directive
@@ -242,21 +242,21 @@
   <div class="section" id="pi-wrf-setup">
 <h1>Pi-WRF Setup<a class="headerlink" href="#pi-wrf-setup" title="Permalink to this headline">¶</a></h1>
 <p>These instructions assume your <a class="reference external" href="https://www.raspberrypi.org">Raspberry Pi</a> is already up and running.</p>
-<div class="section" id="what-is-pi-wrf">
-<h2>What is Pi-WRF?<a class="headerlink" href="#what-is-pi-wrf" title="Permalink to this headline">¶</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
+<div class="section" id="section-1-download-and-install-docker-on-your-raspberry-pi">
+<h2>Section 1. Download and install Docker on your Raspberry Pi<a class="headerlink" href="#section-1-download-and-install-docker-on-your-raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<p>The WRF application is run through a program called <a class="reference external" href="https://www.docker.com">Docker</a>. It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.</p>
+<div class="section" id="install-docker-by-opening-a-terminal-and-typing">
+<h3>1.1 Install Docker by opening a terminal and typing<a class="headerlink" href="#install-docker-by-opening-a-terminal-and-typing" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -sSL https://get.docker.com <span class="p">|</span> sh
+</pre></div>
 </div>
-<div class="section" id="what-are-roles-and-directives">
-<h2>What are roles and directives?<a class="headerlink" href="#what-are-roles-and-directives" title="Permalink to this headline">¶</a></h2>
 <p>Roles and directives are two of the most powerful tools in Jupyter Book. They
 are kind of like functions, but written in a markup language. They both
 serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
 <strong>directives span many lines</strong>. They both accept different kinds of inputs,
 and what they do with those inputs depends on the specific role or directive
 that is being called.</p>
+</div>
 <div class="section" id="using-a-directive">
 <h3>Using a directive<a class="headerlink" href="#using-a-directive" title="Permalink to this headline">¶</a></h3>
 <p>At its simplest, you can insert a directive into your book’s content like so:</p>
