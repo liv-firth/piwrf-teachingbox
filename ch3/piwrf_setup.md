@@ -2,14 +2,15 @@
 
 These instructions assume your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") is already up and running.
 
-## What is Pi-WRF?
+## Section 1. Download and install Docker on your Raspberry Pi 
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+The WRF application is run through a program called [Docker](https://www.docker.com "Docker Homepage"). It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.
 
-## What are roles and directives?
+### 1.1 Install Docker by opening a terminal and typing
+
+```bash
+curl -sSL https://get.docker.com | sh
+``` 
 
 Roles and directives are two of the most powerful tools in Jupyter Book. They
 are kind of like functions, but written in a markup language. They both
