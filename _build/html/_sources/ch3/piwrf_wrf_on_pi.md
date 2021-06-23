@@ -14,7 +14,7 @@ Given these impacts, it is very important for us to forecast or predict the futu
 Even though our weather models have been in development since the 1940’s, making an accurate forecast is still very difficult -- even for a trained meteorologist. This is because our computer simulations are not perfect. Sometimes they suggest the wrong values for temperature, wind, and precipitation. Therefore, meteorologists use weather models as a guide, and use their expertise to deliver a more accurate forecast.
 
 ### Goal:
-The goal of this project is to run a real weather model on your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.
+The goal of this project is to run a real weather model on your Raspberry Pi and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.
 
 ### Who this is for:
 This if for anyone who is interested in running their own weather model or learning how a weather forecast is made. The education module associated with this project is for grades 7-9.
@@ -29,7 +29,7 @@ This if for anyone who is interested in running their own weather model or learn
 
 ## Pi-WRF Setup
 
-These instructions assume your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") is already up and running.
+These instructions assume your Raspberry Pi is already up and running.
 
 ### Section 1. Download and install Docker on your Raspberry Pi 
 
