@@ -12,109 +12,29 @@ The WRF application is run through a program called [Docker](https://www.docker.
 curl -sSL https://get.docker.com | sh
 ``` 
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+### 1.2 Launch the application by copying and pasting the following command
 
-### Using a directive
-
-At its simplest, you can insert a directive into your book's content like so:
-
-````
-```{mydirectivename}
-My directive content
+```bash
+sudo docker run -it --rm --net=host -e DISPLAY -v $HOME/.Xauthority:/root/.Xauthority ncar/pi-wrf
 ```
-````
-
-This will only work if a directive with name `mydirectivename` already exists
-(which it doesn't). There are many pre-defined directives associated with
-Jupyter Book. For example, to insert a note box into your content, you can
-use the following directive:
-
-````
-```{note}
-Here is a note
-```
-````
-
-This results in:
-
-```{note}
-Here is a note
-```
-
-In your built book.
-
-For more information on writing directives, see the
-[MyST documentation](https://myst-parser.readthedocs.io/).
+When you enter the following command and execute it, Docker downloads the file for you and then launches it. If you close the program, Docker will save the “file” so you do not have to download it the next time you run the application.
 
 
-### Using a role
+## Section 2.  
 
-Roles are very similar to directives, but they are less-complex and written
-entirely on one line. You can insert a role into your book's content with
-this pattern:
+Once you have launched the appliction, it is time to run it. The app allows you to configure when you want the model to run and for how long. Follow the steps below to make your first forecast.
 
-```
-Some content {rolename}`and here is my role's content!`
-```
+### 2.1 Click the Run Forecast Button.
 
-Again, roles will only work if `rolename` is a valid role's name. For example,
-the `doc` role can be used to refer to another page in your book. You can
-refer directly to another page by its relative path. For example, the
+### 2.2 Select a start and end date, and confirm your selection.
 
-For more information on writing roles, see the
-[MyST documentation](https://myst-parser.readthedocs.io/).
+### 2.3 Click and drag the domain you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
 
+### 2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.
 
-### Adding a citation
+## Verify Your Results:
 
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
+Websites like these are great for determining the observations of your domain: 
 
-Moreoever, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
+[National Weather Service](https://w2.weather.gov/climate/index.php?wfo=bou "National Weather Service Forecast Office: Denver-Boulder, CO")
 
-````
-```{bibliography}
-```
-````
-
-
-
-
-### Executing code in your markdown files
-
-If you'd like to include computational content inside these markdown files,
-you can use MyST Markdown to define cells that will be executed when your
-book is built. Jupyter Book uses *jupytext* to do this.
-
-First, add Jupytext metadata to the file. For example, to add Jupytext metadata
-to this markdown page, run this command:
-
-```
-jupyter-book myst init markdown.md
-```
-
-Once a markdown file has Jupytext metadata in it, you can add the following
-directive to run the code at build time:
-
-````
-```{code-cell}
-print("Here is some code to execute")
-```
-````
-
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
-
-For more information about executing computational content with Jupyter Book,
-see [The MyST-NB documentation](https://myst-nb.readthedocs.io/).
