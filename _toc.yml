@@ -8,7 +8,4 @@ chapters:
 - file: ch2/notebooks
 - url: https://github.com/reidolson/piwrf-teachingbox
   title: piwrf-teachingbox on GitHub
-- file: ch3/piwrf_intro
-- file: ch4/piwrf_forecast
-- file: ch5/piwrf_setup
-- file: ch6/piwrf_how_model_works
+- file: ch3/piwrf_wrf_on_pi

@@ -1,3 +1,0 @@
-# Pi-WRF Forecast 
-
-Also known as WRF on Pi, the goal of this project is to run a real weather model on your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models. Created by NCAR Education Designer Eliott Foust.
