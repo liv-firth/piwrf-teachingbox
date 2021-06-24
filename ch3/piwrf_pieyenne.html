@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pieyenne &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Run WRF on Raspberry Pi" href="../ch2/piwrf_wrf_on_pi.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/piwrf_logo.gif" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Pi-WRF Teaching Box
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/placeholder.html">
+   temp file: module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/piwrf_wrf_on_pi.html">
+   Run WRF on Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Pieyenne
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/reidolson/piwrf-teachingbox">
+   piwrf-teachingbox on GitHub
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ch3/piwrf_pieyenne.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch3/piwrf_pieyenne.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goal">
+   Goal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-this-is-for">
+   Who this is for
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equipment">
+   Equipment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberry-pi-4-minimum-of-2-there-are-three-versions-of-the-raspberry-pi-4-that-are-available-computing-power-and-price-increases-with-each-version-of-the-raspberry-pi4-but-the-lowest-level-will-suffice-for-this-project">
+     1. Raspberry Pi 4 (minimum of 2) - There are three versions of the raspberry pi 4 that are available. Computing power and price increases with each version of the Raspberry Pi4 but the lowest level will suffice for this project.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberry-pi-power-supply-this-is-a-special-usb-c-power-adaptor-that-will-power-your-raspberry-pi">
+     2. Raspberry Pi Power Supply - This is a special USB-C power adaptor that will power your Raspberry Pi.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-sd-card-for-each-pi-the-amount-of-storage-varies-widely-for-sd-cards-a-minimum-of-32gb-will-suffice-for-this-project">
+     3. Micro SD CARD for each Pi - The amount of storage varies widely for SD cards. A minimum of 32GB will suffice for this project.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdmi-cable">
+     4. HDMI Cable.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-switch-not-a-router-and-enough-ports-for-each-pi-it-is-not-recommended-to-use-a-router-in-place-of-a-switch-the-price-of-the-switch-increases-with-speed-and-performance-for-this-project-a-basic-switch-is-recommended-to-save-costs-10-100">
+     5. Network Switch (not a router  and enough ports for each pi) - It is not recommended to use a router in place of a switch. The price of the switch increases with speed and performance. For this project, a basic switch is recommended to save costs (10/100)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ethernet-cables-for-each-pi">
+     6. Ethernet cables for each Pi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usb-mouse-keyboard">
+     7. USB Mouse/Keyboard
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monitor">
+     8. Monitor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-computer-laptop">
+     9. Personal computer/laptop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-strip">
+     10. Power strip
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supercomputers-today">
+   Supercomputers Today
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#today-s-supercomputers-and-data-centers">
+     Today’s Supercomputers and Data Centers
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pieyenne">
+<h1>Pieyenne<a class="headerlink" href="#pieyenne" title="Permalink to this headline">¶</a></h1>
+<p><img alt="title" src="../_images/piwrf_pieyenne.jpeg" />
+:align: center</p>
+<p>Build NCAR’s Supercomputer with Raspberry Pis!</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>With more and more digital data being collected every day. Although home computers are getting faster and are able to process more data than ever, there still exist large complex scientific problems that are too complex and produce too much data for any top-of-the-line computer anyone can purchase (as of 2019).</p>
+<p>To tackle these difficult problems, supercomputers and clusters are used to. These machines are not necessarily a one-off expensive machine, but they are essentially high end desktop computers that are all networked together to allow for each individual computer to work on a portion of the problem in tandem.</p>
+<p>The scale computers can scale and are only constrained by budgets. Supercomputers can cost tens of millions of dollars and consist of thousands of individual computers.</p>
+</div>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this project is to build a computing cluster with Raspberry Pis. HAving the cluster will allow for some applications to run whereas it will not be able to run on a single Raspberry Pi. To complete the project, users will need to download and upload file, create a local area network with a router, and run install scripts.</p>
+</div>
+<div class="section" id="who-this-is-for">
+<h2>Who this is for<a class="headerlink" href="#who-this-is-for" title="Permalink to this headline">¶</a></h2>
+<p>This project is recommended for grades 9-12 (high school). The project will require typing skills, downloading and running scripts.</p>
+</div>
+<div class="section" id="equipment">
+<h2>Equipment<a class="headerlink" href="#equipment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="raspberry-pi-4-minimum-of-2-there-are-three-versions-of-the-raspberry-pi-4-that-are-available-computing-power-and-price-increases-with-each-version-of-the-raspberry-pi4-but-the-lowest-level-will-suffice-for-this-project">
+<h3>1. <a class="reference external" href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a> (minimum of 2) - There are three versions of the raspberry pi 4 that are available. Computing power and price increases with each version of the Raspberry Pi4 but the lowest level will suffice for this project.<a class="headerlink" href="#raspberry-pi-4-minimum-of-2-there-are-three-versions-of-the-raspberry-pi-4-that-are-available-computing-power-and-price-increases-with-each-version-of-the-raspberry-pi4-but-the-lowest-level-will-suffice-for-this-project" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="raspberry-pi-power-supply-this-is-a-special-usb-c-power-adaptor-that-will-power-your-raspberry-pi">
+<h3>2. <a class="reference external" href="https://www.raspberrypi.org/products/type-c-power-supply/">Raspberry Pi Power Supply</a> - This is a special USB-C power adaptor that will power your Raspberry Pi.<a class="headerlink" href="#raspberry-pi-power-supply-this-is-a-special-usb-c-power-adaptor-that-will-power-your-raspberry-pi" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="micro-sd-card-for-each-pi-the-amount-of-storage-varies-widely-for-sd-cards-a-minimum-of-32gb-will-suffice-for-this-project">
+<h3>3. Micro SD CARD for each Pi - The amount of storage varies widely for SD cards. A minimum of 32GB will suffice for this project.<a class="headerlink" href="#micro-sd-card-for-each-pi-the-amount-of-storage-varies-widely-for-sd-cards-a-minimum-of-32gb-will-suffice-for-this-project" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="hdmi-cable">
+<h3>4. HDMI Cable.<a class="headerlink" href="#hdmi-cable" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="network-switch-not-a-router-and-enough-ports-for-each-pi-it-is-not-recommended-to-use-a-router-in-place-of-a-switch-the-price-of-the-switch-increases-with-speed-and-performance-for-this-project-a-basic-switch-is-recommended-to-save-costs-10-100">
+<h3>5. <a class="reference external" href="https://www.amazon.com/Computer-Networking-Switches/b?ie=UTF8&amp;node=281414">Network Switch</a> (not a router  and enough ports for each pi) - It is not recommended to use a router in place of a switch. The price of the switch increases with speed and performance. For this project, a basic switch is recommended to save costs (10/100)<a class="headerlink" href="#network-switch-not-a-router-and-enough-ports-for-each-pi-it-is-not-recommended-to-use-a-router-in-place-of-a-switch-the-price-of-the-switch-increases-with-speed-and-performance-for-this-project-a-basic-switch-is-recommended-to-save-costs-10-100" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="ethernet-cables-for-each-pi">
+<h3>6. Ethernet cables for each Pi<a class="headerlink" href="#ethernet-cables-for-each-pi" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="usb-mouse-keyboard">
+<h3>7. USB Mouse/Keyboard<a class="headerlink" href="#usb-mouse-keyboard" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="monitor">
+<h3>8. Monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="personal-computer-laptop">
+<h3>9. Personal computer/laptop<a class="headerlink" href="#personal-computer-laptop" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="power-strip">
+<h3>10. Power strip<a class="headerlink" href="#power-strip" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="supercomputers-today">
+<h2>Supercomputers Today<a class="headerlink" href="#supercomputers-today" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="today-s-supercomputers-and-data-centers">
+<h3>Today’s Supercomputers and Data Centers<a class="headerlink" href="#today-s-supercomputers-and-data-centers" title="Permalink to this headline">¶</a></h3>
+<p>NCAR’s has a long history of owning and using supercomputers that dates back to 1970’s. Historically, these computers have been used to advance our knowledge of weather and climate. NCAR’s current supercomputer “<a class="reference external" href="https://www2.cisl.ucar.edu/ncar-wyoming-supercomputing-center">Cheyenne</a>” is based in Cheyenne, Wyoming. Although the primary research done on Cheyenne is tailored to weather and climate research, it is also used in other fields such as renewable energy research, engineering, astrophysics, data science, and artificial intelligence.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../ch2/piwrf_wrf_on_pi.html" title="previous page">Run WRF on Raspberry Pi</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

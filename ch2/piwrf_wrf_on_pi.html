@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Run WRF on Raspberry Pi &#8212; My sample book</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pieyenne" href="../ch3/piwrf_pieyenne.html" />
+    <link rel="prev" title="temp file: module" href="../ch1/placeholder.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/piwrf_logo.gif" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Pi-WRF Teaching Box
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/placeholder.html">
+   temp file: module
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Run WRF on Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/piwrf_pieyenne.html">
+   Pieyenne
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/reidolson/piwrf-teachingbox">
+   piwrf-teachingbox on GitHub
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ch2/piwrf_wrf_on_pi.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch2/piwrf_wrf_on_pi.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forecast">
+   Forecast
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#goal">
+     Goal:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#who-this-is-for">
+     Who this is for:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equipment">
+     Equipment:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#raspberry-pi-3-or-greater">
+       1) Raspberry Pi 3 or greater
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#stable-internet-connection">
+       2) Stable Internet Connection
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mouse-keyboard-monitor-for-the-raspberry-pi">
+       3) Mouse/Keyboard/Monitor for the Raspberry Pi
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#section-1-download-and-install-docker-on-your-raspberry-pi">
+     Section 1. Download and install Docker on your Raspberry Pi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-docker-by-opening-a-terminal-and-typing">
+       1.1 Install Docker by opening a terminal and typing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#launch-the-application-by-copying-and-pasting-the-following-command">
+       1.2 Launch the application by copying and pasting the following command
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#section-2">
+     Section 2.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#click-the-run-forecast-button">
+       2.1 Click the Run Forecast Button.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#select-a-start-and-end-date-and-confirm-your-selection">
+       2.2 Select a start and end date, and confirm your selection.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#click-and-drag-the-domain-you-would-like-to-select-the-map-automatically-zooms-to-your-domain-if-you-accidentally-choose-a-domain-that-is-too-small-then-you-may-either-zoom-out-or-reset-the-domain-once-you-are-done-click-the-run-model-tab">
+       2.3 Click and drag the
+       <span class="xref std std-term">
+        domain
+       </span>
+       you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#press-the-run-model-button-when-you-are-ready-to-run-the-model-after-the-model-finishes-a-button-will-appear-to-view-the-output-click-it-to-see-the-results-of-the-model">
+       2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verify-your-results">
+     Verify Your Results:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-the-model-works">
+   How the Model Works
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="run-wrf-on-raspberry-pi">
+<h1>Run WRF on Raspberry Pi<a class="headerlink" href="#run-wrf-on-raspberry-pi" title="Permalink to this headline">¶</a></h1>
+<p>Also known as WRF on Pi, the goal of this project is to run a real weather model on your <a class="reference external" href="https://www.raspberrypi.org">Raspberry Pi</a> and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.</p>
+<div class="section" id="forecast">
+<h2>Forecast<a class="headerlink" href="#forecast" title="Permalink to this headline">¶</a></h2>
+<p><img alt="title" src="../_images/piwrf_results.png" /></p>
+<div class="section" id="overview">
+<h3>Overview:<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Weather is intertwined within nearly all aspects of our lives. It has a large impact on society by affecting our food supply, transportation, and even our health. On an individual level, the weather can affect events like birthday parties, weddings, outdoor concerts, sporting events, and other occasions in our daily lives. In extreme cases, weather can adversely affect both life and property.</p>
+<p>Given these impacts, it is very important for us to forecast or predict the future weather. Making a weather forecast isn’t a blind guess, but it is a process of using observations of the current weather to start or initialize a mathematics-based computer model. The model is then used to simulate the weather in the future.</p>
+<p>Even though our weather models have been in development since the 1940’s, making an accurate forecast is still very difficult – even for a trained meteorologist. This is because our computer simulations are not perfect. Sometimes they suggest the wrong values for temperature, wind, and precipitation. Therefore, meteorologists use weather models as a guide, and use their expertise to deliver a more accurate forecast.</p>
+</div>
+<div class="section" id="goal">
+<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<p>The goal of this project is to run a real weather model on your Raspberry Pi and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.</p>
+</div>
+<div class="section" id="who-this-is-for">
+<h3>Who this is for:<a class="headerlink" href="#who-this-is-for" title="Permalink to this headline">¶</a></h3>
+<p>This if for anyone who is interested in running their own weather model or learning how a weather forecast is made. The education module associated with this project is for grades 7-9.</p>
+</div>
+<div class="section" id="equipment">
+<h3>Equipment:<a class="headerlink" href="#equipment" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="raspberry-pi-3-or-greater">
+<h4>1) Raspberry Pi 3 or greater<a class="headerlink" href="#raspberry-pi-3-or-greater" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="stable-internet-connection">
+<h4>2) Stable Internet Connection<a class="headerlink" href="#stable-internet-connection" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="mouse-keyboard-monitor-for-the-raspberry-pi">
+<h4>3) Mouse/Keyboard/Monitor for the Raspberry Pi<a class="headerlink" href="#mouse-keyboard-monitor-for-the-raspberry-pi" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>These instructions assume your Raspberry Pi is already up and running.</p>
+<div class="section" id="section-1-download-and-install-docker-on-your-raspberry-pi">
+<h3>Section 1. Download and install Docker on your Raspberry Pi<a class="headerlink" href="#section-1-download-and-install-docker-on-your-raspberry-pi" title="Permalink to this headline">¶</a></h3>
+<p>The WRF application is run through a program called <a class="reference external" href="https://www.docker.com">Docker</a>. It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.</p>
+<div class="section" id="install-docker-by-opening-a-terminal-and-typing">
+<h4>1.1 Install Docker by opening a terminal and typing<a class="headerlink" href="#install-docker-by-opening-a-terminal-and-typing" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -sSL https://get.docker.com <span class="p">|</span> sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="launch-the-application-by-copying-and-pasting-the-following-command">
+<h4>1.2 Launch the application by copying and pasting the following command<a class="headerlink" href="#launch-the-application-by-copying-and-pasting-the-following-command" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker run -it --rm --net<span class="o">=</span>host -e DISPLAY -v <span class="nv">$HOME</span>/.Xauthority:/root/.Xauthority ncar/pi-wrf
+</pre></div>
+</div>
+<p>When you enter the following command and execute it, Docker downloads the file for you and then launches it. If you close the program, Docker will save the “file” so you do not have to download it the next time you run the application.</p>
+</div>
+</div>
+<div class="section" id="section-2">
+<h3>Section 2.<a class="headerlink" href="#section-2" title="Permalink to this headline">¶</a></h3>
+<p>Once you have launched the appliction, it is time to run it. The app allows you to configure when you want the model to run and for how long. Follow the steps below to make your first forecast.</p>
+<div class="section" id="click-the-run-forecast-button">
+<h4>2.1 Click the Run Forecast Button.<a class="headerlink" href="#click-the-run-forecast-button" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="select-a-start-and-end-date-and-confirm-your-selection">
+<h4>2.2 Select a start and end date, and confirm your selection.<a class="headerlink" href="#select-a-start-and-end-date-and-confirm-your-selection" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="click-and-drag-the-domain-you-would-like-to-select-the-map-automatically-zooms-to-your-domain-if-you-accidentally-choose-a-domain-that-is-too-small-then-you-may-either-zoom-out-or-reset-the-domain-once-you-are-done-click-the-run-model-tab">
+<h4>2.3 Click and drag the <a class="reference internal" href="#term-domain"><span class="xref std std-term">domain</span></a> you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.<a class="headerlink" href="#click-and-drag-the-domain-you-would-like-to-select-the-map-automatically-zooms-to-your-domain-if-you-accidentally-choose-a-domain-that-is-too-small-then-you-may-either-zoom-out-or-reset-the-domain-once-you-are-done-click-the-run-model-tab" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="press-the-run-model-button-when-you-are-ready-to-run-the-model-after-the-model-finishes-a-button-will-appear-to-view-the-output-click-it-to-see-the-results-of-the-model">
+<h4>2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.<a class="headerlink" href="#press-the-run-model-button-when-you-are-ready-to-run-the-model-after-the-model-finishes-a-button-will-appear-to-view-the-output-click-it-to-see-the-results-of-the-model" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="verify-your-results">
+<h3>Verify Your Results:<a class="headerlink" href="#verify-your-results" title="Permalink to this headline">¶</a></h3>
+<p>Websites like these are great for determining the observations of your domain:</p>
+<p><a class="reference external" href="https://w2.weather.gov/climate/index.php?wfo=bou">National Weather Service</a></p>
+</div>
+</div>
+<div class="section" id="how-the-model-works">
+<h2>How the Model Works<a class="headerlink" href="#how-the-model-works" title="Permalink to this headline">¶</a></h2>
+<p>Creating a real world forecast is a complicated process. It involves combining observations (from satellites, weather balloons, radars, aircraft, buoys, etc.) and short term forecasts, a process called <a class="reference internal" href="#term-data-assimilation"><span class="xref std std-term">data assimilation</span></a>. The end goal of data assimilation is to create the initial conditions for the weather model, which is essentially a snapshot of the atmosphere. The initial conditions tell the weather model what the values are for pressure, temperature, wind, and water vapor throughout the entire atmosphere. Once the initial state of the atmosphere is known, the weather model runs, and physics and mathematics take over as the weather model begins to simulate weather in the future.</p>
+<dl class="glossary simple">
+<dt id="term-data-assimilation">data assimilation<a class="headerlink" href="#term-data-assimilation" title="Permalink to this term">¶</a></dt><dd><p>The process of combining observations and model forecasts</p>
+</dd>
+<dt id="term-domain">domain<a class="headerlink" href="#term-domain" title="Permalink to this term">¶</a></dt><dd><p>The area you want to simulate</p>
+</dd>
+<dt id="term-grid-cells">grid cells<a class="headerlink" href="#term-grid-cells" title="Permalink to this term">¶</a></dt><dd><p>The model divides the domain into a series of squares that resembles a checkers/chess board. These squares are known as grid cells</p>
+</dd>
+<dt id="term-resolution">resolution<a class="headerlink" href="#term-resolution" title="Permalink to this term">¶</a></dt><dd><p>The size of the grid cells. Having smaller grid cells allows the model to simulate finer and more detailed features. Therefore small grid cells indicate a higher resolution</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ch2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../ch1/placeholder.html" title="previous page">temp file: module</a>
+    <a class='right-next' id="next-link" href="../ch3/piwrf_pieyenne.html" title="next page">Pieyenne</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
