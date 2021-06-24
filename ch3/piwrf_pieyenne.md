@@ -46,6 +46,23 @@ This project is recommended for grades 9-12 (high school). The project will requ
 
 NCAR’s has a long history of owning and using supercomputers that dates back to 1970's. Historically, these computers have been used to advance our knowledge of weather and climate. NCAR's current supercomputer “[Cheyenne](https://www2.cisl.ucar.edu/ncar-wyoming-supercomputing-center "NCAR-Wyoming Supercomputing Center")” is based in Cheyenne, Wyoming. Although the primary research done on Cheyenne is tailored to weather and climate research, it is also used in other fields such as renewable energy research, engineering, astrophysics, data science, and artificial intelligence.
 
+![title](cray1.jpeg)
+:align: center
+
+![title](cray2.jpeg)
+:align: center
+
+The world’s most powerful supercompter is named Summit (as of 2019) and is located in Oak Ridge, Tennessee at Oak Ridge National Laboratory. There are internal components of Summit that differ from Cheyenne, but the concept is the same. The research done on Summit focuses on energy research include, nuclear fusion, cancer research, biology, chemistry, and material science.
+
+![title](summit.jpeg)
+:align: center
+
+Cloud Supercomputers: Since supercomputers require dedicated facilities (sometime their own power grid) it is not feasible for some organizations to build one. With this in mind, “cloud supercomputers” do exist. Several large tech companies offer cloud computing resources to individuals or organizations on a pay-as-you-go basis. 
+
+![title](cloud.jpeg)
+:align: center
+
+## Pieyenne Instructions
 
 
 
