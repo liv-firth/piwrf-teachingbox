@@ -4,8 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: ch1/markdown
-- file: ch2/notebooks
+- file: ch1/placeholder
+- file: ch2/piwrf_wrf_on_pi
+- file: ch3/piwrf_pieyenne
 - url: https://github.com/reidolson/piwrf-teachingbox
   title: piwrf-teachingbox on GitHub
-- file: ch3/piwrf_wrf_on_pi
