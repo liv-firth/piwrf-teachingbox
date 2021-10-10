@@ -33,7 +33,7 @@ These instructions assume your Raspberry Pi is already up and running.
 
 ### Section 1. Download and install Docker on your Raspberry Pi 
 
-The WRF application is run through a program called [Docker](https://www.docker.com "Docker Homepage"). It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.
+The WRF application is run through the container platform [Docker](https://www.docker.com "Docker Homepage"). It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.
 
 #### 1.1 Install Docker by opening a terminal and typing
 
@@ -41,25 +41,25 @@ The WRF application is run through a program called [Docker](https://www.docker.
 curl -sSL https://get.docker.com | sh
 ``` 
 
-#### 1.2 Launch the application by copying and pasting the following command
+#### 1.2a Pi-WRF Jupyter Notebook (non-persistant) 
+
+When you enter the following command and execute it, Docker downloads the Pi-WRF image for you and then launches it. If you close the program, Docker will save the “file” so you do not have to download it the next time you run the application. Note: The command below will run the Pi-WRF Jupyter Notebook in a non-persistant state (any changes to the notebook will not be saved). It is recommended to follow the instructions for the persistant state.
 
 ```bash
-sudo docker run -it --rm --net=host -e DISPLAY -v $HOME/.Xauthority:/root/.Xauthority ncar/pi-wrf
+docker run -p 8888:8888 ncar/pi-wrf
 ```
-When you enter the following command and execute it, Docker downloads the file for you and then launches it. If you close the program, Docker will save the “file” so you do not have to download it the next time you run the application.
 
+#### 1.2b Pi-WRF Jupyter Notebook (persistant) 
 
-### Section 2.  
+To run the notebook so your changes or contributions are saved, you will need to clone NCAR's Pi-WRF repo: [Pi-WRF](https://github.com/NCAR/pi-wrf). Then use the command below (note: you will need to modify the path after -v to reflect the path where you cloned the repo in your file system.
 
-Once you have launched the appliction, it is time to run it. The app allows you to configure when you want the model to run and for how long. Follow the steps below to make your first forecast.
+```bash
+docker run -p 8888:8888 -v ~/pi-wrf/envs/smpar_gui/notebooks:/pi-wrf/src/notebooks ncar/piwrf
+```
 
-#### 2.1 Click the Run Forecast Button.
-
-#### 2.2 Select a start and end date, and confirm your selection.
-
-#### 2.3 Click and drag the {term}`domain` you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
-
-#### 2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.
+### Section 2: Using the App 
+ 
+After the Docker container starts, there will be a URL in the terminal the user can copy and paste into their browser. This will open a locally hosted instance of Jupyter Notebook. The user should select the Pi-WRF.ipynb notebook which will open in a new tab. The notebook provides instructions for selecting the domain and the datetime range for the model. In order to use the application, the raspberry Pi must be connected to the internet. 
 
 ### Verify Your Results:
 
