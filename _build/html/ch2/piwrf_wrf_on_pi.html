@@ -257,21 +257,42 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-pi-wrf-jupyter-notebook-non-persistant">
-       1.2a Pi-WRF Jupyter Notebook (non-persistant)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#b-pi-wrf-jupyter-notebook-persistant">
-       1.2b Pi-WRF Jupyter Notebook (persistant)
+      <a class="reference internal nav-link" href="#launch-the-application-by-copying-and-pasting-the-following-command">
+       1.2 Launch the application by copying and pasting the following command
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#section-2-using-the-app">
-     Section 2: Using the App
+    <a class="reference internal nav-link" href="#section-2">
+     Section 2.
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#click-the-run-forecast-button">
+       2.1 Click the Run Forecast Button.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#select-a-start-and-end-date-and-confirm-your-selection">
+       2.2 Select a start and end date, and confirm your selection.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#click-and-drag-the-domain-you-would-like-to-select-the-map-automatically-zooms-to-your-domain-if-you-accidentally-choose-a-domain-that-is-too-small-then-you-may-either-zoom-out-or-reset-the-domain-once-you-are-done-click-the-run-model-tab">
+       2.3 Click and drag the
+       <span class="xref std std-term">
+        domain
+       </span>
+       you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#press-the-run-model-button-when-you-are-ready-to-run-the-model-after-the-model-finishes-a-button-will-appear-to-view-the-output-click-it-to-see-the-results-of-the-model">
+       2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#verify-your-results">
@@ -334,31 +355,36 @@
 <p>These instructions assume your Raspberry Pi is already up and running.</p>
 <div class="section" id="section-1-download-and-install-docker-on-your-raspberry-pi">
 <h3>Section 1. Download and install Docker on your Raspberry Pi<a class="headerlink" href="#section-1-download-and-install-docker-on-your-raspberry-pi" title="Permalink to this headline">¶</a></h3>
-<p>The WRF application is run through the container platform <a class="reference external" href="https://www.docker.com">Docker</a>. It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.</p>
+<p>The WRF application is run through a program called <a class="reference external" href="https://www.docker.com">Docker</a>. It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.</p>
 <div class="section" id="install-docker-by-opening-a-terminal-and-typing">
 <h4>1.1 Install Docker by opening a terminal and typing<a class="headerlink" href="#install-docker-by-opening-a-terminal-and-typing" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -sSL https://get.docker.com <span class="p">|</span> sh
 </pre></div>
 </div>
 </div>
-<div class="section" id="a-pi-wrf-jupyter-notebook-non-persistant">
-<h4>1.2a Pi-WRF Jupyter Notebook (non-persistant)<a class="headerlink" href="#a-pi-wrf-jupyter-notebook-non-persistant" title="Permalink to this headline">¶</a></h4>
-<p>When you enter the following command and execute it, Docker downloads the Pi-WRF image for you and then launches it. If you close the program, Docker will save the “file” so you do not have to download it the next time you run the application. Note: The command below will run the Pi-WRF Jupyter Notebook in a non-persistant state (any changes to the notebook will not be saved). It is recommended to follow the instructions for the persistant state.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -p <span class="m">8888</span>:8888 ncar/pi-wrf
+<div class="section" id="launch-the-application-by-copying-and-pasting-the-following-command">
+<h4>1.2 Launch the application by copying and pasting the following command<a class="headerlink" href="#launch-the-application-by-copying-and-pasting-the-following-command" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker run -it --rm --net<span class="o">=</span>host -e DISPLAY -v <span class="nv">$HOME</span>/.Xauthority:/root/.Xauthority ncar/pi-wrf
 </pre></div>
 </div>
-</div>
-<div class="section" id="b-pi-wrf-jupyter-notebook-persistant">
-<h4>1.2b Pi-WRF Jupyter Notebook (persistant)<a class="headerlink" href="#b-pi-wrf-jupyter-notebook-persistant" title="Permalink to this headline">¶</a></h4>
-<p>To run the notebook so your changes or contributions are saved, you will need to clone NCAR’s Pi-WRF repo: <a class="reference external" href="https://github.com/NCAR/pi-wrf">Pi-WRF</a>. Then use the command below (note: you will need to modify the path after -v to reflect the path where you cloned the repo in your file system.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -p <span class="m">8888</span>:8888 -v ~/pi-wrf/envs/smpar_gui/notebooks:/pi-wrf/src/notebooks ncar/piwrf
-</pre></div>
+<p>When you enter the following command and execute it, Docker downloads the file for you and then launches it. If you close the program, Docker will save the “file” so you do not have to download it the next time you run the application.</p>
 </div>
 </div>
+<div class="section" id="section-2">
+<h3>Section 2.<a class="headerlink" href="#section-2" title="Permalink to this headline">¶</a></h3>
+<p>Once you have launched the appliction, it is time to run it. The app allows you to configure when you want the model to run and for how long. Follow the steps below to make your first forecast.</p>
+<div class="section" id="click-the-run-forecast-button">
+<h4>2.1 Click the Run Forecast Button.<a class="headerlink" href="#click-the-run-forecast-button" title="Permalink to this headline">¶</a></h4>
 </div>
-<div class="section" id="section-2-using-the-app">
-<h3>Section 2: Using the App<a class="headerlink" href="#section-2-using-the-app" title="Permalink to this headline">¶</a></h3>
-<p>After the Docker container starts, there will be a URL in the terminal the user can copy and paste into their browser. This will open a locally hosted instance of Jupyter Notebook. The user should select the Pi-WRF.ipynb notebook which will open in a new tab. The notebook provides instructions for selecting the domain and the datetime range for the model. In order to use the application, the raspberry Pi must be connected to the internet.</p>
+<div class="section" id="select-a-start-and-end-date-and-confirm-your-selection">
+<h4>2.2 Select a start and end date, and confirm your selection.<a class="headerlink" href="#select-a-start-and-end-date-and-confirm-your-selection" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="click-and-drag-the-domain-you-would-like-to-select-the-map-automatically-zooms-to-your-domain-if-you-accidentally-choose-a-domain-that-is-too-small-then-you-may-either-zoom-out-or-reset-the-domain-once-you-are-done-click-the-run-model-tab">
+<h4>2.3 Click and drag the <a class="reference internal" href="#term-domain"><span class="xref std std-term">domain</span></a> you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.<a class="headerlink" href="#click-and-drag-the-domain-you-would-like-to-select-the-map-automatically-zooms-to-your-domain-if-you-accidentally-choose-a-domain-that-is-too-small-then-you-may-either-zoom-out-or-reset-the-domain-once-you-are-done-click-the-run-model-tab" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="press-the-run-model-button-when-you-are-ready-to-run-the-model-after-the-model-finishes-a-button-will-appear-to-view-the-output-click-it-to-see-the-results-of-the-model">
+<h4>2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.<a class="headerlink" href="#press-the-run-model-button-when-you-are-ready-to-run-the-model-after-the-model-finishes-a-button-will-appear-to-view-the-output-click-it-to-see-the-results-of-the-model" title="Permalink to this headline">¶</a></h4>
+</div>
 </div>
 <div class="section" id="verify-your-results">
 <h3>Verify Your Results:<a class="headerlink" href="#verify-your-results" title="Permalink to this headline">¶</a></h3>
