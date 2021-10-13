@@ -1,6 +1,7 @@
 # Run WRF on Raspberry Pi
 
-Also known as WRF on Pi, the goal of this project is to run a real weather model on your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.
+Also known as WRF on Pi, the goal of this project is to run a real weather model on your [Raspberry Pi](https://www.raspberrypi.org "Raspberry Pi Homepage") and make a weather forecast. You will run the simulation for the days you want, location you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.
+
  
 ## Forecast 
 
@@ -17,7 +18,7 @@ Even though our weather models have been in development since the 1940’s, maki
 The goal of this project is to run a real weather model on your Raspberry Pi and make a weather forecast. You will run the simulation for the days you want, where you want, visualize the output, and make a forecast. By working through this module, you will gain an understanding of how a weather forecast is made, how a meteorologist adds “value” to the forecast, and you will learn some of the limits and shortcomings of some of our latest weather models.
 
 ### Who this is for:
-This if for anyone who is interested in running their own weather model or learning how a weather forecast is made. The education module associated with this project is for grades 7-9.
+This is for anyone who is interested in running their own weather model or learning how a weather forecast is made. The education module associated with this project is for grades 7-9.
 
 ### Equipment:
 
@@ -33,7 +34,7 @@ These instructions assume your Raspberry Pi is already up and running.
 
 ### Section 1. Download and install Docker on your Raspberry Pi 
 
-The WRF application is run through a program called [Docker](https://www.docker.com "Docker Homepage"). It is too complicated for this lesson on how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.
+The WRF application is run through a program called [Docker](https://www.docker.com "Docker Homepage"). It is too complicated for this lesson to include how Docker works, but a good description can be found here. Once you have Docker installed onto your computer, it will be very easy to launch the application on your Raspberry Pi.
 
 #### 1.1 Install Docker by opening a terminal and typing
 
@@ -55,9 +56,21 @@ Once you have launched the appliction, it is time to run it. The app allows you 
 
 #### 2.1 Click the Run Forecast Button.
 
+You will see that the program is broken down into blocks of code. Hitting the Run button (shown by the red arrow in the image below), will run one block of code. This means, you will need to hit the run button multiple times to complete the program. 
+
+![runbutton](piwrf_runbutton.png)
+
 #### 2.2 Select a start and end date, and confirm your selection.
 
+To select a start and end date, you will need to alter the code slighlty. Comments have been added to the code to guide you. As you can see in the image included below, you will uncomment (remove the # symbol) from the two lines of code show by the red arrows and alter the time in each one. 
+
+![time](piwrf_inserttime.png)
+
 #### 2.3 Click and drag the {term}`domain` you would like to select. The map automatically zooms to your domain. If you accidentally choose a domain that is too small, then you may either zoom out or reset the domain. Once you are done, click the run model tab.
+
+To choose your domain, right click and hold on the blue pin (shown again with red arrow in the image below) and drag it to the location you would like to select. This may require that you zoom in and out on the map using the '+' and '-' buttons in the left upperhand corner of the map, before clicking and dragging the pin. 
+
+![map](insert piwrf_map.png)
 
 #### 2.4 Press the run model button when you are ready to run the model. After the model finishes, a button will appear to view the output. Click it to see the results of the model.
 
